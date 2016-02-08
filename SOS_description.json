@@ -1,0 +1,184 @@
+{
+	"serviceIdentification" : {
+    		"title" : {
+      			"eng" : "SOSful"
+    		},
+    		"abstract" : {
+      			"eng" : "SOSful REST/JSON Sensor Observation Service"
+    		},
+		"serviceType" : "VLC:SOS",
+		"accessConstraints" : [ "NONE" ],
+		"versions" : [ "1.0.0" ],
+		"operations" : [
+			{
+				"url": "/",
+				"verbs": [
+					{
+						"name": "GET",
+						"description" : {
+							"eng" : "Return the service description"
+						}
+					}
+				]
+
+			},
+			{
+				"url": "/sensor",
+				"verbs": [
+					{
+						"name": "GET",
+						"description" : {
+							"eng" : "Return all sensors"
+						}
+					},
+					{
+						"name": "POST",
+						"description" : {
+							"eng" : "Create a new sensors"
+						}
+					}
+				]
+			},
+			{
+				"url": "/sensor/:id",
+				"verbs": [
+					{
+						"name": "GET",
+						"description" : {
+							"eng" : "Return the sensors whit the id"
+						}
+					},
+					{
+						"name": "PUT",
+						"description" : {
+							"eng" : "Update the sensors whit the id"
+						}
+					},
+					{
+						"name": "DELETE",
+						"description" : {
+							"eng" : "Remove the sensors whit the id"
+						}
+					}
+				]
+			},
+			{
+				"url": "/observation",
+				"verbs": [
+					{
+						"name": "GET",
+						"description" : {
+							"eng" : "Return all observations"
+						}
+					},
+					{
+						"name": "POST",
+						"description" : {
+							"eng" : "Create a new observation"
+						}
+					}
+				]
+			},
+			{
+				"url": "/observation/:id",
+				"verbs": [
+					{
+						"name": "GET",
+						"description" : {
+							"eng" : "Return the observation whit the id"
+						}
+					},
+					{
+						"name": "PUT",
+						"description" : {
+							"eng" : "Update the observation whit the id"
+						}
+					},
+					{
+						"name": "DELETE",
+						"description" : {
+							"eng" : "Remove the observation whit the id"
+						}
+					}
+				]
+			},
+			{
+				"url": "/feature",
+				"verbs": [
+					{
+						"name": "GET",
+						"description" : {
+							"eng" : "Return all feature"
+						}
+					},
+					{
+						"name": "POST",
+						"description" : {
+							"eng" : "Create a new feature"
+						}
+					}
+				]
+			},
+			{
+				"url": "/feature/:id",
+				"verbs": [
+					{
+						"name": "GET",
+						"description" : {
+							"eng" : "Return the feature whit the id"
+						}
+					},
+					{
+						"name": "PUT",
+						"description" : {
+							"eng" : "Update the feature whit the id"
+						}
+					},
+					{
+						"name": "DELETE",
+						"description" : {
+							"eng" : "Remove the feature whit the id"
+						}
+					}
+				]
+			}
+		]
+	},
+	"serviceProvider": {
+		"name": "Universitat Politecnica de Valencia (UPV)",
+	      	"site": "http://www.upv.es",
+	      	"contacts" : [
+			{
+				"individualName" :  "Juan Pradilla",
+				"organisationName" :  "Universitat Politecnica de Valencia (UPV)",
+				"positionName" : "Ph.D. Student",
+				"contactInfo" : {
+					"address" : {
+						"deliveryPoint" : "Camino de Vera, s/n",
+						"postalCode": "46022",
+						"city" : "Valencia",
+						"country" : "Spain",
+						"electronicMailAddress" : "juaprace@teleco.upv.es"
+					},
+					"linkage": "upv.es"
+				}
+
+			}
+		]
+	},
+	"filterCapabilities": {
+      		"spatial": {
+         		"operands":	[ "Polygon" ],
+         		"operators": {
+            			"within":	[ "Polygon" ]
+         		}
+      		},
+      		"temporal": {
+         		"operands":	[ "TimeInstant", "TimePeriod" ],
+         		"operators": {
+            			"during":[ "TimePeriod" ],
+            			"equals":[ "TimeInstant" ]
+         		}
+      		}
+	}
+}

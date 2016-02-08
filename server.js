@@ -7,8 +7,22 @@ mongoose        = require('mongoose');
 
 var app = express();
 
+//Read Docker params
+var mongoURI = 'mongodb://localhost/sosful';
+var nodePort = 3000;
+
+var DOCKER_MONGO_URI = process.env.MONGO_PORT;
+if ( DOCKER_MONGO_URI ) {
+  mongoURI = DOCKER_MONGO_URI.replace( 'tcp', 'mongodb' ) + '/sosful';
+}
+
+var DOCKER_NODE_PORT = process.env.PORT;
+if (DOCKER_NODE_PORT) {
+  nodePort = DOCKER_NODE_PORT;
+}
+
 // Connection to DB
-mongoose.connect('mongodb://localhost/sosful', function(err, res) {
+mongoose.connect(mongoURI, function(err, res) {
   if(err) throw err;
   console.log('Connected to Database');
 });
@@ -82,6 +96,6 @@ app.use(function(err, req, res, next) {
   if (err) return res.sendStatus(400, err.message);
 });
 
-app.listen(3000, function() {
-  console.log('SOSful running on http://localhost:3000');
+app.listen(nodePort, function() {
+  console.log('SOSful running on http://localhost:' +  nodePort);
 });
