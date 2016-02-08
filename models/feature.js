@@ -16,6 +16,7 @@ var geometrySchema = new Schema({
 }, {_id: false});
 
 var featureSchema = new Schema({
+	type: { type: String, required: true },
 	sampledFeature: { type: Boolean, required: true },
 	geometry:	{ type: geometrySchema, required: true }
 });

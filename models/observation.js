@@ -5,7 +5,7 @@ Schema       = mongoose.Schema;
 var observationSchema = new Schema({
   type: 		{ type: String, enum: ['String', 'Number', 'Boolean', 'Date', 'Buffer'], required: true },
   sensor:		{ type: Schema.Types.ObjectId, required: true, ref: 'Sensor' },
-  observedProperty:{ type: Number, required: true },
+  observedProperty:{ type: String, required: true },
   featureOfInterest: { type: Schema.Types.ObjectId, required: true, ref: 'Feature' },
   phenomenonTime:	{ type: Date, required: true },
   resultTime:	{ type: Date, required: true },

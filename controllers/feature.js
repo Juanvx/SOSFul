@@ -45,6 +45,12 @@ exports.findAllFeatures = function(req, res) {
     };
   }
 
+  //Process type filter
+	if (typeof q.type != 'undefined') {
+		var sensorFilter = q.type;
+		queryFind.type = { $in: sensorFilter };
+	}
+
   Feature
   .find(queryFind)
   .select(querySelect)

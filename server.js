@@ -79,7 +79,7 @@ capabilities.route('/')
 app.use(capabilities);
 
 app.use(function(err, req, res, next) {
-  if (err) return res.sendStatus(400);
+  if (err) return res.sendStatus(400, err.message);
 });
 
 app.listen(3000, function() {

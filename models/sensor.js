@@ -26,7 +26,7 @@ var contactSchema = new Schema({
 var quantitySchema = new Schema({
   name:		{ type: String, required: true },
   uom_code: 	{ type: String, required: true },
-  observedProperty:{ type: Number, required: true },
+  observedProperty:{ type: String, required: true },
   observationType: { type: String, enum: ['String', 'Number', 'Boolean', 'Date', 'Buffer'], required: true }
 }, {_id: false});
 
