@@ -7,6 +7,8 @@ mongoose        = require('mongoose');
 
 var app = express();
 
+console.log("hola");
+
 //Read Docker params
 var mongoURI = 'mongodb://localhost/sosful';
 var nodePort = 3000;
